@@ -534,3 +534,71 @@ for i in range(n1-1):
             list1[j] = list1[j+1]
             list1[j+1] = temp
 print(list1)
+
+
+# Insert Element in Tuple
+N1 = int(input("Enter the number of inputs in a tuple"))
+
+list = []
+for i in range(0,N1):
+    num = int(input("Enter the number in a tuple"))
+    list.append(num)
+t1 = tuple(list)
+print(t1)
+
+num_1 = int(input("Enter the number in a tuple"))
+pos_1 = int(input("Enter the position of the number in a tuple"))
+
+list.insert(pos_1-1,num_1)
+t2 = tuple(list)
+print(t2)
+
+
+# Repeated Element in Tuple
+n1 = int(input("Enter the number of elements in a tuple: "))
+list = []
+for i in range(0, n1):
+    num = int(input("Enter the element: "))
+    list.append(num)
+    
+for i in range (n1):
+    for j in range(i+1, n1):
+        if list[i] == list[j]:
+            print(list[i])
+            break
+ 
+
+
+# Sort element in a nested tuple according to it's second element
+n = int(input("Enter the number of nested lists: "))
+list = []
+for i in range (0, n):
+    list1 = []
+    for j in range (0, 3):
+        m = int(input("Enter the number: "))
+        list1.append(m)
+    list.append(list1)
+list_sort = []
+for i in range(0, n-1):
+    for j in range(0, n-i-1):
+        if(list[j][1] > list[(j+1)][1]):
+            temp = list[j]
+            list[j] = list[j+1]
+            list[j+1] = temp
+print(list)
+print(tuple(list))
+
+
+
+# Delete Duplicate elements from a tuple
+n1 = int(input("Enter the number of elements in a tuple: "))
+list = []
+for i in range(0, n1):
+    num = int(input("Enter the element: "))
+    list.append(num)
+
+res = []
+for i in list:
+    if i not in res:
+        res.append(i)
+print(tuple(res))
