@@ -602,3 +602,48 @@ for i in list:
     if i not in res:
         res.append(i)
 print(tuple(res))
+
+
+
+
+# Dictionary
+employee = dict()
+employees = int(input("Enter the number of employees: "))
+
+for i in range(employees):
+    accountNumber = input("Enter the account number: ")
+    balance = input("Enter the balance: ")
+    employee[accountNumber] = balance
+
+print("1. Check balance for an existing account holder\n2. WithDraw amount\n3. Deposit amount\n4. Insert new Account holder\n")
+option = int(input("Enter the option: "))
+
+if(option == 1):
+    accountNumber = input("Enter the account number: ")
+    if accountNumber in employee.keys():
+        print("Total balance : "+ employee[accountNumber])
+    else:
+        print("Account number invalid!")
+elif(option == 2):
+    accountNumber = input("Enter the account number: ")
+    withdrawAmount = input("Enter the amount: ")
+    presentAmount = employee[accountNumber]
+    if(int(presentAmount) >= int(withdrawAmount)):
+        print(withdrawAmount + " is withdraw")
+        employee[accountNumber] = str(int(presentAmount) - int(withdrawAmount))
+    else:
+        print("You haven't enough balance!")
+    print("Remaining balance : "+ employee[accountNumber])
+elif(option == 3):
+    accountNumber = input("Enter the account number: ")
+    depositAmount = input("Enter the amount: ")
+    presentAmount = employee[accountNumber]
+    totalAmount = int(depositAmount) + int(presentAmount)
+    employee[accountNumber] = str(totalAmount)
+    print("New balance : "+ employee[accountNumber])
+elif(option == 4):
+    accountNumber = input("Enter the account number: ")
+    balance = input("Enter the balance: ")
+    employee.update({accountNumber:balance})
+    print(employee)
+
